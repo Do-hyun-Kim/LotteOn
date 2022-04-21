@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         let rootViewController = ViewController()
         
-        let navigationController = LotteNavigaionView(lotteController: UINavigationController(rootViewController: rootViewController), controllerDI: LotteNaivagionConstruction(lotteTitle: "필터", lotteTitleColor: .systemPink))
+        let navigationController = LotteNavigaionView(lotteController: UINavigationController(rootViewController: rootViewController), controllerDI: LotteNaivagionConstruction(lotteRightBarisHidden: false))
         window?.rootViewController = navigationController.lotteController
         window?.makeKeyAndVisible()
         
