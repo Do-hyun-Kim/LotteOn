@@ -1,0 +1,629 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FFF84DB82811405F0097C732 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF84DB72811405F0097C732 /* AppDelegate.swift */; };
+		FFF84DBA2811405F0097C732 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF84DB92811405F0097C732 /* SceneDelegate.swift */; };
+		FFF84DBC2811405F0097C732 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF84DBB2811405F0097C732 /* ViewController.swift */; };
+		FFF84DBF2811405F0097C732 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFF84DBD2811405F0097C732 /* Main.storyboard */; };
+		FFF84DC1281140730097C732 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFF84DC0281140730097C732 /* Assets.xcassets */; };
+		FFF84DC4281140730097C732 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFF84DC2281140730097C732 /* LaunchScreen.storyboard */; };
+		FFF84DCF281140730097C732 /* LotteOnTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF84DCE281140730097C732 /* LotteOnTests.swift */; };
+		FFF84DD9281140730097C732 /* LotteOnUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF84DD8281140730097C732 /* LotteOnUITests.swift */; };
+		FFF84DDB281140730097C732 /* LotteOnUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF84DDA281140730097C732 /* LotteOnUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FFF84DCB281140730097C732 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FFF84DAC2811405E0097C732 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FFF84DB32811405E0097C732;
+			remoteInfo = LotteOn;
+		};
+		FFF84DD5281140730097C732 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FFF84DAC2811405E0097C732 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FFF84DB32811405E0097C732;
+			remoteInfo = LotteOn;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FFF84DB42811405F0097C732 /* LotteOn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LotteOn.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFF84DB72811405F0097C732 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FFF84DB92811405F0097C732 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		FFF84DBB2811405F0097C732 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FFF84DBE2811405F0097C732 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FFF84DC0281140730097C732 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FFF84DC3281140730097C732 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FFF84DC5281140730097C732 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FFF84DCA281140730097C732 /* LotteOnTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LotteOnTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFF84DCE281140730097C732 /* LotteOnTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteOnTests.swift; sourceTree = "<group>"; };
+		FFF84DD4281140730097C732 /* LotteOnUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LotteOnUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFF84DD8281140730097C732 /* LotteOnUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteOnUITests.swift; sourceTree = "<group>"; };
+		FFF84DDA281140730097C732 /* LotteOnUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteOnUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FFF84DB12811405E0097C732 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FFF84DC7281140730097C732 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FFF84DD1281140730097C732 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FFF84DAB2811405E0097C732 = {
+			isa = PBXGroup;
+			children = (
+				FFF84DB62811405F0097C732 /* LotteOn */,
+				FFF84DCD281140730097C732 /* LotteOnTests */,
+				FFF84DD7281140730097C732 /* LotteOnUITests */,
+				FFF84DB52811405F0097C732 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FFF84DB52811405F0097C732 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FFF84DB42811405F0097C732 /* LotteOn.app */,
+				FFF84DCA281140730097C732 /* LotteOnTests.xctest */,
+				FFF84DD4281140730097C732 /* LotteOnUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FFF84DB62811405F0097C732 /* LotteOn */ = {
+			isa = PBXGroup;
+			children = (
+				FFF84DB72811405F0097C732 /* AppDelegate.swift */,
+				FFF84DB92811405F0097C732 /* SceneDelegate.swift */,
+				FFF84DBB2811405F0097C732 /* ViewController.swift */,
+				FFF84DBD2811405F0097C732 /* Main.storyboard */,
+				FFF84DC0281140730097C732 /* Assets.xcassets */,
+				FFF84DC2281140730097C732 /* LaunchScreen.storyboard */,
+				FFF84DC5281140730097C732 /* Info.plist */,
+			);
+			path = LotteOn;
+			sourceTree = "<group>";
+		};
+		FFF84DCD281140730097C732 /* LotteOnTests */ = {
+			isa = PBXGroup;
+			children = (
+				FFF84DCE281140730097C732 /* LotteOnTests.swift */,
+			);
+			path = LotteOnTests;
+			sourceTree = "<group>";
+		};
+		FFF84DD7281140730097C732 /* LotteOnUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FFF84DD8281140730097C732 /* LotteOnUITests.swift */,
+				FFF84DDA281140730097C732 /* LotteOnUITestsLaunchTests.swift */,
+			);
+			path = LotteOnUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FFF84DB32811405E0097C732 /* LotteOn */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FFF84DDE281140730097C732 /* Build configuration list for PBXNativeTarget "LotteOn" */;
+			buildPhases = (
+				FFF84DB02811405E0097C732 /* Sources */,
+				FFF84DB12811405E0097C732 /* Frameworks */,
+				FFF84DB22811405E0097C732 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LotteOn;
+			productName = LotteOn;
+			productReference = FFF84DB42811405F0097C732 /* LotteOn.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FFF84DC9281140730097C732 /* LotteOnTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FFF84DE1281140730097C732 /* Build configuration list for PBXNativeTarget "LotteOnTests" */;
+			buildPhases = (
+				FFF84DC6281140730097C732 /* Sources */,
+				FFF84DC7281140730097C732 /* Frameworks */,
+				FFF84DC8281140730097C732 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FFF84DCC281140730097C732 /* PBXTargetDependency */,
+			);
+			name = LotteOnTests;
+			productName = LotteOnTests;
+			productReference = FFF84DCA281140730097C732 /* LotteOnTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FFF84DD3281140730097C732 /* LotteOnUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FFF84DE4281140730097C732 /* Build configuration list for PBXNativeTarget "LotteOnUITests" */;
+			buildPhases = (
+				FFF84DD0281140730097C732 /* Sources */,
+				FFF84DD1281140730097C732 /* Frameworks */,
+				FFF84DD2281140730097C732 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FFF84DD6281140730097C732 /* PBXTargetDependency */,
+			);
+			name = LotteOnUITests;
+			productName = LotteOnUITests;
+			productReference = FFF84DD4281140730097C732 /* LotteOnUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FFF84DAC2811405E0097C732 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1310;
+				LastUpgradeCheck = 1310;
+				TargetAttributes = {
+					FFF84DB32811405E0097C732 = {
+						CreatedOnToolsVersion = 13.1;
+					};
+					FFF84DC9281140730097C732 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = FFF84DB32811405E0097C732;
+					};
+					FFF84DD3281140730097C732 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = FFF84DB32811405E0097C732;
+					};
+				};
+			};
+			buildConfigurationList = FFF84DAF2811405E0097C732 /* Build configuration list for PBXProject "LotteOn" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FFF84DAB2811405E0097C732;
+			productRefGroup = FFF84DB52811405F0097C732 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FFF84DB32811405E0097C732 /* LotteOn */,
+				FFF84DC9281140730097C732 /* LotteOnTests */,
+				FFF84DD3281140730097C732 /* LotteOnUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FFF84DB22811405E0097C732 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFF84DC4281140730097C732 /* LaunchScreen.storyboard in Resources */,
+				FFF84DC1281140730097C732 /* Assets.xcassets in Resources */,
+				FFF84DBF2811405F0097C732 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FFF84DC8281140730097C732 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FFF84DD2281140730097C732 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FFF84DB02811405E0097C732 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFF84DBC2811405F0097C732 /* ViewController.swift in Sources */,
+				FFF84DB82811405F0097C732 /* AppDelegate.swift in Sources */,
+				FFF84DBA2811405F0097C732 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FFF84DC6281140730097C732 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFF84DCF281140730097C732 /* LotteOnTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FFF84DD0281140730097C732 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFF84DDB281140730097C732 /* LotteOnUITestsLaunchTests.swift in Sources */,
+				FFF84DD9281140730097C732 /* LotteOnUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FFF84DCC281140730097C732 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FFF84DB32811405E0097C732 /* LotteOn */;
+			targetProxy = FFF84DCB281140730097C732 /* PBXContainerItemProxy */;
+		};
+		FFF84DD6281140730097C732 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FFF84DB32811405E0097C732 /* LotteOn */;
+			targetProxy = FFF84DD5281140730097C732 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FFF84DBD2811405F0097C732 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FFF84DBE2811405F0097C732 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FFF84DC2281140730097C732 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FFF84DC3281140730097C732 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FFF84DDC281140730097C732 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FFF84DDD281140730097C732 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FFF84DDF281140730097C732 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XKA22N2KHA;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LotteOn/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.LotteOn;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FFF84DE0281140730097C732 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XKA22N2KHA;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LotteOn/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.LotteOn;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FFF84DE2281140730097C732 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XKA22N2KHA;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.LotteOnTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LotteOn.app/LotteOn";
+			};
+			name = Debug;
+		};
+		FFF84DE3281140730097C732 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XKA22N2KHA;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.LotteOnTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LotteOn.app/LotteOn";
+			};
+			name = Release;
+		};
+		FFF84DE5281140730097C732 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XKA22N2KHA;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.LotteOnUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LotteOn;
+			};
+			name = Debug;
+		};
+		FFF84DE6281140730097C732 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XKA22N2KHA;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.LotteOnUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LotteOn;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FFF84DAF2811405E0097C732 /* Build configuration list for PBXProject "LotteOn" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FFF84DDC281140730097C732 /* Debug */,
+				FFF84DDD281140730097C732 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FFF84DDE281140730097C732 /* Build configuration list for PBXNativeTarget "LotteOn" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FFF84DDF281140730097C732 /* Debug */,
+				FFF84DE0281140730097C732 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FFF84DE1281140730097C732 /* Build configuration list for PBXNativeTarget "LotteOnTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FFF84DE2281140730097C732 /* Debug */,
+				FFF84DE3281140730097C732 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FFF84DE4281140730097C732 /* Build configuration list for PBXNativeTarget "LotteOnUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FFF84DE5281140730097C732 /* Debug */,
+				FFF84DE6281140730097C732 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FFF84DAC2811405E0097C732 /* Project object */;
+}
