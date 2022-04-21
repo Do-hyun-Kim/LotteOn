@@ -10,9 +10,18 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let rootViewController = ViewController()
+        
+        let navigationController = LotteNavigaionView(lotteController: UINavigationController(rootViewController: rootViewController), controllerDI: LotteNaivagionConstruction(lotteTitle: "필터", lotteTitleColor: .systemPink))
+        window?.rootViewController = navigationController.lotteController
+        window?.makeKeyAndVisible()
+        
+        
         // Override point for customization after application launch.
         return true
     }

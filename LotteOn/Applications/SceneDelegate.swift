@@ -11,12 +11,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: windowScene)
+        let rootViewController = ViewController()
+        
+        let navigationController = LotteNavigaionView(lotteController: UINavigationController(rootViewController: rootViewController), controllerDI: LotteNaivagionConstruction(lotteTitle: "필터", lotteTitleColor: .systemPink))
+        window?.rootViewController = navigationController.lotteController
+        window?.makeKeyAndVisible()
+        
+        
+    
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -50,3 +58,57 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+
+protocol LotteNaviationDI {
+    var lotteTitle: String? {get set}
+    var lotteTitleColor: UIColor? {get set}
+    var lotteRightBarisHidden: Bool {get set}
+}
+
+
+final class LotteNavigaionView {
+    
+    public let lotteController: UINavigationController
+    public let controllerDI: LotteNaviationDI
+    
+    
+    init(lotteController: UINavigationController, controllerDI: LotteNaviationDI) {
+        self.lotteController = lotteController
+        self.controllerDI = controllerDI
+        configure()
+    }
+    
+    public func configure() {
+        lotteController.title = controllerDI.lotteTitle
+        lotteController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: controllerDI.lotteTitleColor]
+        guard controllerDI.lotteRightBarisHidden  else { return }
+        lotteController.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: .none, action: #selector(didTapCancelButton))
+    }
+    
+    @objc
+    public func didTapCancelButton() {
+        
+    }
+
+}
+
+
+final class LotteNaivagionConstruction: LotteNaviationDI {
+    var lotteTitle: String?
+        
+    var lotteTitleColor: UIColor?
+    
+    var lotteRightBarisHidden: Bool
+    
+    
+    init(lotteRightBarisHidden: Bool) {
+        self.lotteRightBarisHidden = true
+    }
+    
+    
+    init(lotteTitle:String?, lotteTitleColor: UIColor?) {
+        self.lotteTitle = lotteTitle
+        self.lotteTitleColor = lotteTitleColor
+        self.lotteRightBarisHidden = false
+    }
+}
