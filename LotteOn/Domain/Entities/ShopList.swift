@@ -16,7 +16,7 @@ struct ShopList: Codable {
     var productPrice: Int
     var productDiscountRate: Int
     
-    enum codingKeys: String, CodingKey {
+    enum CodingKeys: String, CodingKey {
         case divisionNumber = "t"
         case productName = "n"
         case brandName = "b"

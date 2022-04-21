@@ -10,6 +10,13 @@
 		FFB02D5E281180D700BB3E06 /* LotteNavigaionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB02D5D281180D700BB3E06 /* LotteNavigaionView.swift */; };
 		FFB02D602811810E00BB3E06 /* LotteNaivagionConstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB02D5F2811810E00BB3E06 /* LotteNaivagionConstruction.swift */; };
 		FFB02D622811825B00BB3E06 /* ShopList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB02D612811825B00BB3E06 /* ShopList.swift */; };
+		FFB02D6828118ACD00BB3E06 /* FetchLotteShopListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB02D6728118ACD00BB3E06 /* FetchLotteShopListUseCase.swift */; };
+		FFB02D6A28118D8B00BB3E06 /* ShopListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB02D6928118D8B00BB3E06 /* ShopListRepository.swift */; };
+		FFB02D6E281193B500BB3E06 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB02D6D281193B500BB3E06 /* ViewModel.swift */; };
+		FFB02D712811944B00BB3E06 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = FFB02D702811944B00BB3E06 /* RxCocoa */; };
+		FFB02D732811944B00BB3E06 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = FFB02D722811944B00BB3E06 /* RxRelay */; };
+		FFB02D752811944B00BB3E06 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FFB02D742811944B00BB3E06 /* RxSwift */; };
+		FFB02D772811A44400BB3E06 /* product_list.json in Resources */ = {isa = PBXBuildFile; fileRef = FFB02D762811A44400BB3E06 /* product_list.json */; };
 		FFF84DB82811405F0097C732 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF84DB72811405F0097C732 /* AppDelegate.swift */; };
 		FFF84DBA2811405F0097C732 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF84DB92811405F0097C732 /* SceneDelegate.swift */; };
 		FFF84DBC2811405F0097C732 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF84DBB2811405F0097C732 /* ViewController.swift */; };
@@ -41,6 +48,10 @@
 		FFB02D5D281180D700BB3E06 /* LotteNavigaionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteNavigaionView.swift; sourceTree = "<group>"; };
 		FFB02D5F2811810E00BB3E06 /* LotteNaivagionConstruction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteNaivagionConstruction.swift; sourceTree = "<group>"; };
 		FFB02D612811825B00BB3E06 /* ShopList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopList.swift; sourceTree = "<group>"; };
+		FFB02D6728118ACD00BB3E06 /* FetchLotteShopListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchLotteShopListUseCase.swift; sourceTree = "<group>"; };
+		FFB02D6928118D8B00BB3E06 /* ShopListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopListRepository.swift; sourceTree = "<group>"; };
+		FFB02D6D281193B500BB3E06 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		FFB02D762811A44400BB3E06 /* product_list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = product_list.json; sourceTree = "<group>"; };
 		FFF84DB42811405F0097C732 /* LotteOn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LotteOn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFF84DB72811405F0097C732 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FFF84DB92811405F0097C732 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +71,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFB02D752811944B00BB3E06 /* RxSwift in Frameworks */,
+				FFB02D732811944B00BB3E06 /* RxRelay in Frameworks */,
+				FFB02D712811944B00BB3E06 /* RxCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +103,22 @@
 			path = NavigationDI;
 			sourceTree = "<group>";
 		};
+		FFB02D652811898C00BB3E06 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FFF84DBB2811405F0097C732 /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FFB02D66281189A400BB3E06 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FFB02D6D281193B500BB3E06 /* ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		FFF84DAB2811405E0097C732 = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +146,7 @@
 				FFF84DE72811410C0097C732 /* Domain */,
 				FFF84DC0281140730097C732 /* Assets.xcassets */,
 				FFF84DC5281140730097C732 /* Info.plist */,
+				FFB02D762811A44400BB3E06 /* product_list.json */,
 			);
 			path = LotteOn;
 			sourceTree = "<group>";
@@ -158,6 +189,7 @@
 		FFF84DE9281141210097C732 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				FFB02D6728118ACD00BB3E06 /* FetchLotteShopListUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -165,6 +197,7 @@
 		FFF84DEA281141460097C732 /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
+				FFB02D6928118D8B00BB3E06 /* ShopListRepository.swift */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -172,10 +205,11 @@
 		FFF84DEB2811415B0097C732 /* Applications */ = {
 			isa = PBXGroup;
 			children = (
+				FFB02D66281189A400BB3E06 /* ViewModel */,
+				FFB02D652811898C00BB3E06 /* View */,
 				FFB02D5C281180A600BB3E06 /* NavigationDI */,
 				FFF84DB72811405F0097C732 /* AppDelegate.swift */,
 				FFF84DB92811405F0097C732 /* SceneDelegate.swift */,
-				FFF84DBB2811405F0097C732 /* ViewController.swift */,
 				FFF84DC2281140730097C732 /* LaunchScreen.storyboard */,
 			);
 			path = Applications;
@@ -197,6 +231,11 @@
 			dependencies = (
 			);
 			name = LotteOn;
+			packageProductDependencies = (
+				FFB02D702811944B00BB3E06 /* RxCocoa */,
+				FFB02D722811944B00BB3E06 /* RxRelay */,
+				FFB02D742811944B00BB3E06 /* RxSwift */,
+			);
 			productName = LotteOn;
 			productReference = FFF84DB42811405F0097C732 /* LotteOn.app */;
 			productType = "com.apple.product-type.application";
@@ -269,6 +308,9 @@
 				Base,
 			);
 			mainGroup = FFF84DAB2811405E0097C732;
+			packageReferences = (
+				FFB02D6F2811944B00BB3E06 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = FFF84DB52811405F0097C732 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -287,6 +329,7 @@
 			files = (
 				FFF84DC4281140730097C732 /* LaunchScreen.storyboard in Resources */,
 				FFF84DC1281140730097C732 /* Assets.xcassets in Resources */,
+				FFB02D772811A44400BB3E06 /* product_list.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,10 +355,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFB02D602811810E00BB3E06 /* LotteNaivagionConstruction.swift in Sources */,
+				FFB02D6E281193B500BB3E06 /* ViewModel.swift in Sources */,
+				FFB02D6A28118D8B00BB3E06 /* ShopListRepository.swift in Sources */,
 				FFF84DBC2811405F0097C732 /* ViewController.swift in Sources */,
 				FFF84DB82811405F0097C732 /* AppDelegate.swift in Sources */,
 				FFB02D622811825B00BB3E06 /* ShopList.swift in Sources */,
 				FFB02D5E281180D700BB3E06 /* LotteNavigaionView.swift in Sources */,
+				FFB02D6828118ACD00BB3E06 /* FetchLotteShopListUseCase.swift in Sources */,
 				FFF84DBA2811405F0097C732 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -674,6 +720,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FFB02D6F2811944B00BB3E06 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FFB02D702811944B00BB3E06 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FFB02D6F2811944B00BB3E06 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		FFB02D722811944B00BB3E06 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FFB02D6F2811944B00BB3E06 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		FFB02D742811944B00BB3E06 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FFB02D6F2811944B00BB3E06 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FFF84DAC2811405E0097C732 /* Project object */;
 }
