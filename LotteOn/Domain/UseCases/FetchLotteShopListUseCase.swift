@@ -10,6 +10,7 @@ import Foundation
 
 protocol FetchLotteShopUseCase {
     func execute(completion: @escaping(Result<[ShopList],Error>) -> Void)
+    func executeTransform(reqeustValue: Int) -> String
 }
 
 
@@ -29,6 +30,10 @@ final class DefaultLotteShopUseCase: FetchLotteShopUseCase {
                 completion(result)
             }
         }
+    }
+    
+    func executeTransform(reqeustValue: Int) -> String {
+        return lotteRepository.fetchStringTransform(transform: reqeustValue)
     }
 }
 
