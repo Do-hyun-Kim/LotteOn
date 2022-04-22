@@ -44,10 +44,24 @@ class ViewController: UIViewController {
         
         return $0
     }(UIButton())
+    
+
+    private var lotteCollectionView: UICollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.minimumLineSpacing = 15
+        flowLayout.minimumInteritemSpacing = 10
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        flowLayout.itemSize = CGSize(width: $0.frame.width / 2, height: 200)
+        flowLayout.scrollDirection = .vertical
+        $0.register(LotteCollectionViewCell.self, forCellWithReuseIdentifier: LotteCollectionViewCell.reuseIdentifier)
+        return $0
+    }(UICollectionView())
 
     private let viewModel: ViewModel = ViewModel(lotteShopUseCase: DefaultLotteShopUseCase(lotteRepository: DefaultShopListRepository()))
     
-                                                 
+    
+    //MARK: LifeCycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -55,24 +69,21 @@ class ViewController: UIViewController {
         configure()
     }
     
+    
+    //MARK: Configure
+    
     private func bind() {
-        viewModel.lotteShopUseCase.execute { [weak self] result in
-            guard let `self` = self else { return }
-            switch result {
-            case .success(let value):
-                self.listTotalCountLabel.text = "총 " + self.viewModel.lotteShopUseCase.executeTransform(reqeustValue: value.count) + " 개"
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
+        viewModel.bindTotalCount { [weak self] count in
+            self?.listTotalCountLabel.text = "총 " + count + " 개"
         }
     }
     
-    
-    //MARK: configure
     private func configure() {
         view.backgroundColor = .white
+        lotteCollectionView.delegate = self
+        lotteCollectionView.dataSource = self
         
-        [listTotalCountLabel,lotteRankFilterButton,lotteAllFilterButton].forEach {
+        [listTotalCountLabel,lotteRankFilterButton,lotteCollectionView,lotteAllFilterButton].forEach {
             view.addSubview($0)
         }
         
@@ -96,6 +107,23 @@ class ViewController: UIViewController {
         }
         
         
+    }
+
+
+}
+
+
+
+extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LotteCollectionViewCell.reuseIdentifier, for: indexPath) as? LotteCollectionViewCell else { return  UICollectionViewCell() }
+        
+        
+        return cell
     }
 
 

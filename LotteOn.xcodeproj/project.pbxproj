@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF52801B2812EDEE00E904C8 /* LotteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF52801A2812EDEE00E904C8 /* LotteCollectionViewCell.swift */; };
 		FFB02D5E281180D700BB3E06 /* LotteNavigaionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB02D5D281180D700BB3E06 /* LotteNavigaionView.swift */; };
 		FFB02D602811810E00BB3E06 /* LotteNaivagionConstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB02D5F2811810E00BB3E06 /* LotteNaivagionConstruction.swift */; };
 		FFB02D622811825B00BB3E06 /* ShopList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB02D612811825B00BB3E06 /* ShopList.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FF52801A2812EDEE00E904C8 /* LotteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteCollectionViewCell.swift; sourceTree = "<group>"; };
 		FFB02D5D281180D700BB3E06 /* LotteNavigaionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteNavigaionView.swift; sourceTree = "<group>"; };
 		FFB02D5F2811810E00BB3E06 /* LotteNaivagionConstruction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteNaivagionConstruction.swift; sourceTree = "<group>"; };
 		FFB02D612811825B00BB3E06 /* ShopList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopList.swift; sourceTree = "<group>"; };
@@ -96,6 +98,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FF5280182812EDA200E904C8 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				FF52801A2812EDEE00E904C8 /* LotteCollectionViewCell.swift */,
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
 		FFB02D5C281180A600BB3E06 /* NavigationDI */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +118,7 @@
 		FFB02D652811898C00BB3E06 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FF5280182812EDA200E904C8 /* CollectionViewCell */,
 				FFF84DBB2811405F0097C732 /* ViewController.swift */,
 			);
 			path = View;
@@ -363,6 +374,7 @@
 				FFB02D6A28118D8B00BB3E06 /* ShopListRepository.swift in Sources */,
 				FFF84DBC2811405F0097C732 /* ViewController.swift in Sources */,
 				FFF84DB82811405F0097C732 /* AppDelegate.swift in Sources */,
+				FF52801B2812EDEE00E904C8 /* LotteCollectionViewCell.swift in Sources */,
 				FFB02D622811825B00BB3E06 /* ShopList.swift in Sources */,
 				FFB02D5E281180D700BB3E06 /* LotteNavigaionView.swift in Sources */,
 				FFB02D6828118ACD00BB3E06 /* FetchLotteShopListUseCase.swift in Sources */,
