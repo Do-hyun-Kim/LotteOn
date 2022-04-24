@@ -46,17 +46,19 @@ class ViewController: UIViewController {
     }(UIButton())
     
 
-    private var lotteCollectionView: UICollectionView = {
+    lazy var lotteCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumLineSpacing = 15
         flowLayout.minimumInteritemSpacing = 10
         flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
-        flowLayout.itemSize = CGSize(width: $0.frame.width / 2, height: 200)
+        flowLayout.itemSize = CGSize(width: view.frame.width / 2, height: 200)
         flowLayout.scrollDirection = .vertical
-        $0.register(LotteCollectionViewCell.self, forCellWithReuseIdentifier: LotteCollectionViewCell.reuseIdentifier)
-        return $0
-    }(UICollectionView())
-
+        
+        let collectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.register(LotteCollectionViewCell.self, forCellWithReuseIdentifier: LotteCollectionViewCell.reuseIdentifier)
+        return collectionView
+    }()
+    
     private let viewModel: ViewModel = ViewModel(lotteShopUseCase: DefaultLotteShopUseCase(lotteRepository: DefaultShopListRepository()))
     
     
@@ -106,6 +108,12 @@ class ViewController: UIViewController {
             $0.height.equalTo(lotteAllFilterButton.snp.height)
         }
         
+        lotteCollectionView.snp.makeConstraints {
+            $0.top.equalTo(lotteRankFilterButton.snp.bottom).offset(20)
+            $0.left.right.equalTo(view)
+            $0.bottom.equalTo(view.snp.bottom)
+        }
+        
         
     }
 
@@ -114,14 +122,14 @@ class ViewController: UIViewController {
 
 
 
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LotteCollectionViewCell.reuseIdentifier, for: indexPath) as? LotteCollectionViewCell else { return  UICollectionViewCell() }
-        
+        cell.itemBind(viewModel.entities[indexPath.item])
         
         return cell
     }

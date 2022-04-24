@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 
 
@@ -82,27 +83,34 @@ class LotteCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    private func strikeFromString() -> NSAttributedString {
-       let attributedString = NSMutableAttributedString(string: discountPriceLabel.text!)
+    private func strikeFromString(discount item: ShopList) -> NSAttributedString {
+        let attributedString = NSMutableAttributedString(string: "\(item.productCost)")
         attributedString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: NSMakeRange(0, attributedString.length))
         return attributedString
     }
     
-    public func cellBind(_ shopList: ShopList) {
-        let imageURL = URL(string: shopList.productImage)
-        guard let imageData = try? Data(contentsOf: imageURL!) else { return }
-        productNameLabel.text = shopList.productName
-        brandNameLabel.text = shopList.brandName
-        productImageView.image = UIImage(data: imageData)
-        
-        if shopList.productDiscountRate > 0 {
-            discountLabel.isHidden = false
-            discountLabel.text = "\(shopList.productDiscountRate)"
-            discountPriceLabel.text = "\(shopList.productPrice)"
-            discountPriceLabel.attributedText = strikeFromString()
+    public func itemBind(_ shopList: ShopList) {
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            let imageURL = URL(string: shopList.productImage)
+            guard let imageData = try? Data(contentsOf: imageURL!) else { return }
+            DispatchQueue.main.async {
+                guard let `self` = self else { return }
+                self.productNameLabel.text = shopList.productName
+                self.brandNameLabel.text = shopList.brandName
+                self.productImageView.image = UIImage(data: imageData)
+                
+                if shopList.productDiscountRate > 0 {
+                    self.discountLabel.isHidden = false
+                    self.discountLabel.text = "\(shopList.productDiscountRate)%"
+                    self.discountPriceLabel.attributedText = self.strikeFromString(discount: shopList)
+                    self.costLabel.text = "\(shopList.productPrice)원"
+                } else {
+                    self.discountLabel.isHidden = true
+                    self.discountPriceLabel.isHidden = true
+                    self.costLabel.text = "\(shopList.productCost)원"
+                }
+            }
         }
-        costLabel.text = "\(shopList.productCost)"
-        
     }
 
 }
