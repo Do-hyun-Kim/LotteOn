@@ -51,7 +51,7 @@ class ViewController: UIViewController {
         flowLayout.minimumLineSpacing = 15
         flowLayout.minimumInteritemSpacing = 10
         flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
-        flowLayout.itemSize = CGSize(width: view.frame.width / 2, height: 200)
+        flowLayout.itemSize = CGSize(width: (view.frame.width  - 20) / 2, height: 200)
         flowLayout.scrollDirection = .vertical
         
         let collectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
@@ -124,12 +124,12 @@ class ViewController: UIViewController {
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.count
+        return viewModel.numberOfItemsInSection
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LotteCollectionViewCell.reuseIdentifier, for: indexPath) as? LotteCollectionViewCell else { return  UICollectionViewCell() }
-        cell.itemBind(viewModel.entities[indexPath.item])
+        cell.itemBind(viewModel.entities[indexPath.item], viewModel)
         
         return cell
     }

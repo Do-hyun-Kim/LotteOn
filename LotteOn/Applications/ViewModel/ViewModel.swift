@@ -24,9 +24,11 @@ final class ViewModel: ViewModelType {
     public var lotteShopUseCase: FetchLotteShopUseCase
     public var entities: [ShopList] = []
     
-    public var count: Int {
+    public var numberOfItemsInSection: Int {
         return entities.count
     }
+    
+    
     
     init(lotteShopUseCase: FetchLotteShopUseCase) {
         self.lotteShopUseCase = lotteShopUseCase
@@ -47,7 +49,7 @@ final class ViewModel: ViewModelType {
     }
     
     public func bindTotalCount(completion: @escaping (String) -> Void) {
-        let transformString = lotteShopUseCase.executeTransform(reqeustValue: count)
+        let transformString = lotteShopUseCase.executeTransform(reqeustValue: numberOfItemsInSection)
         completion(transformString)
     }
     

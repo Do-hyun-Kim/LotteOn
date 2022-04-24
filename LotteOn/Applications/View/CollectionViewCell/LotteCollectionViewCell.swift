@@ -14,10 +14,24 @@ class LotteCollectionViewCell: UICollectionViewCell {
     
     //MARK: Property
     static let reuseIdentifier = String(describing: LotteCollectionViewCell.self)
+    private var collectionViewModel: ViewModel!
+    
+    private(set) var discountRate: Int = 0 {
+        didSet {
+            if discountRate > 0 {
+                discountRateLabel.isHidden = false
+                discountPriceLabel.isHidden = false
+            } else {
+                discountRateLabel.isHidden = true
+                discountPriceLabel.isHidden = true
+            }
+        }
+    }
     
     public var productImageView: UIImageView = {
         $0.layer.cornerRadius = 10
         $0.contentMode = .scaleAspectFill
+        $0.clipsToBounds = true
         return $0
     }(UIImageView())
     
@@ -30,15 +44,7 @@ class LotteCollectionViewCell: UICollectionViewCell {
         return $0
     }(UILabel())
     
-    public var brandNameLabel: UILabel = {
-        $0.font = .boldSystemFont(ofSize: 12)
-        $0.textAlignment = .center
-        $0.numberOfLines = 0
-        $0.textColor = .black
-        return $0
-    }(UILabel())
-    
-    public var discountLabel: UILabel = {
+    public var discountRateLabel: UILabel = {
         $0.font = .systemFont(ofSize: 9)
         $0.textAlignment = .center
         $0.numberOfLines = 0
@@ -77,40 +83,82 @@ class LotteCollectionViewCell: UICollectionViewCell {
     }
     
     //MARK: Configure
+    
     private func configure() {
-        [productImageView,productNameLabel,brandNameLabel,discountLabel,costLabel,discountPriceLabel].forEach {
+        [productImageView,productNameLabel,discountRateLabel,costLabel,discountPriceLabel].forEach {
             addSubview($0)
         }
+        
+        productImageView.snp.makeConstraints {
+            $0.top.left.right.equalToSuperview()
+        }
+        
+        productNameLabel.snp.makeConstraints {
+            $0.top.equalTo(productImageView.snp.bottom).offset(5)
+            $0.left.right.equalToSuperview()
+        }
+        
+        discountRateLabel.snp.makeConstraints {
+            $0.top.equalTo(productNameLabel.snp.bottom).offset(5)
+            $0.left.equalTo(productNameLabel)
+            $0.centerY.equalTo(discountPriceLabel)
+            $0.height.equalTo(10)
+        }
+        
+        discountPriceLabel.snp.makeConstraints {
+            $0.top.equalTo(discountRateLabel)
+            $0.left.equalTo(discountRateLabel.snp.right).offset(5)
+            $0.height.equalTo(discountRateLabel)
+        }
+        
+        costLabel.snp.makeConstraints {
+            $0.top.equalTo(discountRateLabel.snp.bottom).offset(10)
+            $0.left.equalTo(discountRateLabel)
+            $0.bottom.equalTo(contentView.snp.bottom).offset(-10)
+        }
+        
+        
+        
     }
-    
-    private func strikeFromString(discount item: ShopList) -> NSAttributedString {
-        let attributedString = NSMutableAttributedString(string: "\(item.productCost)")
-        attributedString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: NSMakeRange(0, attributedString.length))
+
+    public func itemBind(_ shopList: ShopList, _ viewModel: ViewModel) {
+        collectionViewModel = viewModel
+        discountRate = shopList.productDiscountRate
+        let filterName = shopList.brandName.filter{ !String($0).isEmpty}.appending(" ")
+        productImageView.setCacheImage(shopList.productImage)
+        DispatchQueue.main.async { [weak self] in
+            guard let `self` = self else { return }
+            let combineName = filterName + shopList.productName
+            self.productNameLabel.attributedText = self.boldFromString(to: combineName, from: shopList.brandName)
+            self.discountRateLabel.text = "\(shopList.productDiscountRate)%"
+            self.discountPriceLabel.attributedText = self.strikeFromString(discount: "\(shopList.productCost)")
+            let transformPrice = self.collectionViewModel.lotteShopUseCase.executeTransform(reqeustValue: shopList.productCost)
+            self.costLabel.attributedText = self.systemFromString(to: transformPrice + "원")
+        }
+    }
+}
+
+
+
+extension LotteCollectionViewCell {
+
+    private func strikeFromString(discount item: String) -> NSAttributedString {
+        let attributedString = NSMutableAttributedString(string: item)
+        attributedString.addAttribute(.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: NSMakeRange(0, attributedString.length))
         return attributedString
     }
     
-    public func itemBind(_ shopList: ShopList) {
-        DispatchQueue.global(qos: .background).async { [weak self] in
-            let imageURL = URL(string: shopList.productImage)
-            guard let imageData = try? Data(contentsOf: imageURL!) else { return }
-            DispatchQueue.main.async {
-                guard let `self` = self else { return }
-                self.productNameLabel.text = shopList.productName
-                self.brandNameLabel.text = shopList.brandName
-                self.productImageView.image = UIImage(data: imageData)
-                
-                if shopList.productDiscountRate > 0 {
-                    self.discountLabel.isHidden = false
-                    self.discountLabel.text = "\(shopList.productDiscountRate)%"
-                    self.discountPriceLabel.attributedText = self.strikeFromString(discount: shopList)
-                    self.costLabel.text = "\(shopList.productPrice)원"
-                } else {
-                    self.discountLabel.isHidden = true
-                    self.discountPriceLabel.isHidden = true
-                    self.costLabel.text = "\(shopList.productCost)원"
-                }
-            }
-        }
+    private func boldFromString(to name: String, from transfrom: String) -> NSAttributedString {
+        let attributedString = NSMutableAttributedString(string: name)
+        attributedString.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 12), range: (name as NSString).range(of: transfrom))
+        attributedString.addAttribute(.foregroundColor, value: UIColor.black, range: (name as NSString).range(of: transfrom))
+        return attributedString
     }
-
+    
+    private func systemFromString(to price: String, transfrom: String = "원") -> NSAttributedString {
+        let attributedString = NSMutableAttributedString(string: price)
+        attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 11), range: (price as NSString).range(of: transfrom))
+        return attributedString
+    }
+    
 }
