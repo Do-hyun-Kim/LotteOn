@@ -21,9 +21,18 @@ class LotteCollectionViewCell: UICollectionViewCell {
             if discountRate > 0 {
                 discountRateLabel.isHidden = false
                 discountPriceLabel.isHidden = false
+                costLabel.snp.remakeConstraints {
+                    $0.top.equalTo(discountRateLabel.snp.bottom).offset(10)
+                    $0.left.equalTo(discountRateLabel)
+                }
             } else {
                 discountRateLabel.isHidden = true
                 discountPriceLabel.isHidden = true
+                costLabel.snp.remakeConstraints {
+                    $0.top.equalTo(productNameLabel.snp.bottom).offset(5)
+                    $0.left.equalTo(productNameLabel)
+                    $0.width.lessThanOrEqualTo(contentView.frame.width)
+                }
             }
         }
     }
@@ -91,6 +100,7 @@ class LotteCollectionViewCell: UICollectionViewCell {
         
         productImageView.snp.makeConstraints {
             $0.top.left.right.equalToSuperview()
+            $0.height.equalTo(150)
         }
         
         productNameLabel.snp.makeConstraints {
@@ -111,28 +121,21 @@ class LotteCollectionViewCell: UICollectionViewCell {
             $0.height.equalTo(discountRateLabel)
         }
         
-        costLabel.snp.makeConstraints {
-            $0.top.equalTo(discountRateLabel.snp.bottom).offset(10)
-            $0.left.equalTo(discountRateLabel)
-            $0.bottom.equalTo(contentView.snp.bottom).offset(-10)
-        }
-        
-        
-        
     }
 
     public func itemBind(_ shopList: ShopList, _ viewModel: ViewModel) {
         collectionViewModel = viewModel
-        discountRate = shopList.productDiscountRate
         let filterName = shopList.brandName.filter{ !String($0).isEmpty}.appending(" ")
         productImageView.setCacheImage(shopList.productImage)
         DispatchQueue.main.async { [weak self] in
             guard let `self` = self else { return }
+            self.discountRate = shopList.productDiscountRate
             let combineName = filterName + shopList.productName
             self.productNameLabel.attributedText = self.boldFromString(to: combineName, from: shopList.brandName)
             self.discountRateLabel.text = "\(shopList.productDiscountRate)%"
-            self.discountPriceLabel.attributedText = self.strikeFromString(discount: "\(shopList.productCost)")
-            let transformPrice = self.collectionViewModel.lotteShopUseCase.executeTransform(reqeustValue: shopList.productCost)
+            let transformDiscount = self.collectionViewModel.lotteShopUseCase.executeTransform(reqeustValue: shopList.productCost)
+            self.discountPriceLabel.attributedText = self.strikeFromString(discount: transformDiscount + "원")
+            let transformPrice = self.collectionViewModel.lotteShopUseCase.executeTransform(reqeustValue: shopList.productPrice)
             self.costLabel.attributedText = self.systemFromString(to: transformPrice + "원")
         }
     }

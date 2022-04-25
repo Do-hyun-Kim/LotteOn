@@ -51,7 +51,7 @@ class ViewController: UIViewController {
         flowLayout.minimumLineSpacing = 15
         flowLayout.minimumInteritemSpacing = 10
         flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
-        flowLayout.itemSize = CGSize(width: (view.frame.width  - 20) / 2, height: 200)
+        flowLayout.itemSize = CGSize(width: (view.frame.width  - 20) / 2, height: 250)
         flowLayout.scrollDirection = .vertical
         
         let collectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
@@ -82,8 +82,11 @@ class ViewController: UIViewController {
     
     private func configure() {
         view.backgroundColor = .white
+        lotteCollectionView.backgroundColor = .white
         lotteCollectionView.delegate = self
         lotteCollectionView.dataSource = self
+        lotteCollectionView.prefetchDataSource = self
+        
         
         [listTotalCountLabel,lotteRankFilterButton,lotteCollectionView,lotteAllFilterButton].forEach {
             view.addSubview($0)
@@ -111,7 +114,7 @@ class ViewController: UIViewController {
         lotteCollectionView.snp.makeConstraints {
             $0.top.equalTo(lotteRankFilterButton.snp.bottom).offset(20)
             $0.left.right.equalTo(view)
-            $0.bottom.equalTo(view.snp.bottom)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
         
         
@@ -122,7 +125,7 @@ class ViewController: UIViewController {
 
 
 
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDataSourcePrefetching {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.numberOfItemsInSection
     }
@@ -133,6 +136,16 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource,U
         
         return cell
     }
-
+    
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        indexPaths.forEach {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LotteCollectionViewCell.reuseIdentifier, for: $0) as? LotteCollectionViewCell else { return }
+            viewModel.prefetchImage(index: $0.item) { image in
+                DispatchQueue.main.async {
+                    cell.productImageView.image = image
+                }
+            }
+        }
+    }
 
 }
