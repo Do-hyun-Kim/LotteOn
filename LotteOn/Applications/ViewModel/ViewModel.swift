@@ -9,10 +9,10 @@ import RxSwift
 import RxCocoa
 import UIKit
 
-
 protocol ViewModelType {
     var didTapAllFilter: PublishSubject<Void> {get set}
     var didTapRankFilter: PublishSubject<Void> {get set}
+    var didTapRowFilter: PublishSubject<Void> {get set}
 }
 
 
@@ -22,6 +22,7 @@ final class ViewModel: ViewModelType {
     
     public var didTapAllFilter: PublishSubject<Void> = PublishSubject<Void>()
     public var didTapRankFilter: PublishSubject<Void> = PublishSubject<Void>()
+    public var didTapRowFilter: PublishSubject<Void> = PublishSubject<Void>()
     public var lotteShopUseCase: FetchLotteShopUseCase
     public var entities: [ShopList] = []
     public var prefetchImage: UIImage?

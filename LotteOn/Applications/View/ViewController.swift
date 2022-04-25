@@ -7,6 +7,8 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+
 
 class ViewController: UIViewController {
 
@@ -59,14 +61,13 @@ class ViewController: UIViewController {
         return collectionView
     }()
     
-    private let viewModel: ViewModel = ViewModel(lotteShopUseCase: DefaultLotteShopUseCase(lotteRepository: DefaultShopListRepository()))
-    
+    public var viewModel: ViewModel = ViewModel(lotteShopUseCase: DefaultLotteShopUseCase(lotteRepository: DefaultShopListRepository()))
+    private let disposeBag: DisposeBag = DisposeBag()
     
     //MARK: LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         bind()
         configure()
     }
@@ -78,6 +79,21 @@ class ViewController: UIViewController {
         viewModel.bindTotalCount { [weak self] count in
             self?.listTotalCountLabel.text = "총 " + count + " 개"
         }
+        
+        lotteRankFilterButton.rx
+            .tap
+            .bind(to: viewModel.didTapRankFilter)
+            .disposed(by: disposeBag)
+        
+        
+        viewModel.didTapRankFilter
+            .withUnretained(self)
+            .subscribe { [self] vc, _ in
+                let filterVC = ProductSortPanModalView()
+                filterVC.modalPresentationStyle = .overFullScreen
+                self.present(filterVC, animated: false, completion: nil)
+            }.disposed(by: disposeBag)
+        
     }
     
     private func configure() {

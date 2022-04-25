@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		FF52801B2812EDEE00E904C8 /* LotteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF52801A2812EDEE00E904C8 /* LotteCollectionViewCell.swift */; };
 		FF52801E2815889400E904C8 /* ImageCacheFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF52801D2815889400E904C8 /* ImageCacheFetch.swift */; };
+		FF5280202816A1B700E904C8 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF52801F2816A1B700E904C8 /* FilterViewController.swift */; };
+		FF5280232816A57E00E904C8 /* ProductSortPanModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5280222816A57E00E904C8 /* ProductSortPanModalView.swift */; };
 		FFB02D5E281180D700BB3E06 /* LotteNavigaionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB02D5D281180D700BB3E06 /* LotteNavigaionView.swift */; };
 		FFB02D602811810E00BB3E06 /* LotteNaivagionConstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB02D5F2811810E00BB3E06 /* LotteNaivagionConstruction.swift */; };
 		FFB02D622811825B00BB3E06 /* ShopList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB02D612811825B00BB3E06 /* ShopList.swift */; };
@@ -50,6 +52,8 @@
 /* Begin PBXFileReference section */
 		FF52801A2812EDEE00E904C8 /* LotteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteCollectionViewCell.swift; sourceTree = "<group>"; };
 		FF52801D2815889400E904C8 /* ImageCacheFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheFetch.swift; sourceTree = "<group>"; };
+		FF52801F2816A1B700E904C8 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		FF5280222816A57E00E904C8 /* ProductSortPanModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSortPanModalView.swift; sourceTree = "<group>"; };
 		FFB02D5D281180D700BB3E06 /* LotteNavigaionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteNavigaionView.swift; sourceTree = "<group>"; };
 		FFB02D5F2811810E00BB3E06 /* LotteNaivagionConstruction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteNaivagionConstruction.swift; sourceTree = "<group>"; };
 		FFB02D612811825B00BB3E06 /* ShopList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopList.swift; sourceTree = "<group>"; };
@@ -100,13 +104,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FF5280182812EDA200E904C8 /* CollectionViewCell */ = {
+		FF5280182812EDA200E904C8 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
 				FF52801C2815884300E904C8 /* ImageCacheFetch */,
 				FF52801A2812EDEE00E904C8 /* LotteCollectionViewCell.swift */,
 			);
-			path = CollectionViewCell;
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		FF52801C2815884300E904C8 /* ImageCacheFetch */ = {
@@ -115,6 +119,14 @@
 				FF52801D2815889400E904C8 /* ImageCacheFetch.swift */,
 			);
 			path = ImageCacheFetch;
+			sourceTree = "<group>";
+		};
+		FF5280212816A52400E904C8 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				FF5280222816A57E00E904C8 /* ProductSortPanModalView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		FFB02D5C281180A600BB3E06 /* NavigationDI */ = {
@@ -129,8 +141,10 @@
 		FFB02D652811898C00BB3E06 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FF5280182812EDA200E904C8 /* CollectionViewCell */,
+				FF5280212816A52400E904C8 /* Components */,
+				FF5280182812EDA200E904C8 /* Cell */,
 				FFF84DBB2811405F0097C732 /* ViewController.swift */,
+				FF52801F2816A1B700E904C8 /* FilterViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -386,8 +400,10 @@
 				FFF84DBC2811405F0097C732 /* ViewController.swift in Sources */,
 				FFF84DB82811405F0097C732 /* AppDelegate.swift in Sources */,
 				FF52801E2815889400E904C8 /* ImageCacheFetch.swift in Sources */,
+				FF5280202816A1B700E904C8 /* FilterViewController.swift in Sources */,
 				FF52801B2812EDEE00E904C8 /* LotteCollectionViewCell.swift in Sources */,
 				FFB02D622811825B00BB3E06 /* ShopList.swift in Sources */,
+				FF5280232816A57E00E904C8 /* ProductSortPanModalView.swift in Sources */,
 				FFB02D5E281180D700BB3E06 /* LotteNavigaionView.swift in Sources */,
 				FFB02D6828118ACD00BB3E06 /* FetchLotteShopListUseCase.swift in Sources */,
 				FFF84DBA2811405F0097C732 /* SceneDelegate.swift in Sources */,
