@@ -15,6 +15,17 @@ class StoreCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = String(describing: StoreCollectionViewCell.self)
     var storeButtonAction : (() -> ())?
 
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                storeButton.backgroundColor = .systemRed
+                storeButton.setTitleColor(.white, for: .normal)
+            } else {
+                storeButton.backgroundColor = .white
+                storeButton.setTitleColor(.lightGray, for: .normal)
+            }
+        }
+    }
     
     public let storeButton: UIButton = {
         $0.setTitleColor(.lightGray, for: .normal)
@@ -48,7 +59,7 @@ class StoreCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    public func itemBind(storeList: Store, index: Int) {
+    public func itemBind(storeList: StoreList, index: Int) {
         DispatchQueue.main.async {
             self.storeButton.setTitle(storeList.name[index], for: .normal)
         }

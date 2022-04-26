@@ -73,14 +73,16 @@ class ViewController: UIViewController {
         notificationDefault()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.bindTotalCount { [weak self] count in
+            self?.listTotalCountLabel.text = "총 " + count + " 개"
+        }
+    }
     
     //MARK: Configure
     
     private func bind() {
-        viewModel.bindTotalCount { [weak self] count in
-            self?.listTotalCountLabel.text = "총 " + count + " 개"
-        }
-        
         lotteRankFilterButton
             .rx.tap
             .bind(to: viewModel.didTapRankFilter)
@@ -150,7 +152,7 @@ class ViewController: UIViewController {
         
     }
     
-    //MARK: Notification
+    //MARK: Notifications
     
     private func notificationDefault() {
         NotificationCenter.default

@@ -10,6 +10,9 @@ import SnapKit
 
 class FilterViewController: UIViewController {
     
+    
+    //MARK: Property
+    
     private let filterTitleLabel: UILabel = {
         $0.text = "매장"
         $0.textColor = .black
@@ -23,12 +26,12 @@ class FilterViewController: UIViewController {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumLineSpacing = 5
         flowLayout.minimumInteritemSpacing = 5
-        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         
         let collectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.register(StoreCollectionViewCell.self, forCellWithReuseIdentifier: StoreCollectionViewCell.reuseIdentifier)
         collectionView.isScrollEnabled = false
-        
+        collectionView.allowsMultipleSelection = true
         return collectionView
     }()
     
@@ -47,13 +50,26 @@ class FilterViewController: UIViewController {
         return $0
     }(UIView())
     
+    private let priceFilterLabel: UILabel = {
+        $0.text = "가격"
+        $0.textColor = .black
+        $0.textAlignment = .center
+        $0.font = UIFont.systemFont(ofSize: 20)
+        
+        return $0
+    }(UILabel())
+    
 
     public let storeViewModel = FilterViewModel()
+    
+    //MARK: LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
     }
+    
+    //MARK: Configure
     
     private func configure() {
         view.backgroundColor = .white
@@ -68,7 +84,7 @@ class FilterViewController: UIViewController {
         storeCollectionView.delegate = self
         storeCollectionView.dataSource = self
         
-        [filterTitleLabel,storeCollectionView,countView].forEach {
+        [filterTitleLabel,storeCollectionView,countView,priceFilterLabel].forEach {
             view.addSubview($0)
         }
         
@@ -96,16 +112,24 @@ class FilterViewController: UIViewController {
             $0.centerX.centerY.equalTo(countView)
         }
         
+        priceFilterLabel.snp.makeConstraints {
+            $0.top.equalTo(storeCollectionView.snp.bottom).offset(10)
+            $0.left.equalTo(filterTitleLabel)
+            $0.width.height.equalTo(40)
+        }
+        
     }
     
     //MARK: Action
+    
     @objc
     private func didTapRightBarButton() {
         self.navigationController?.popViewController(animated: true)
     }
     
     //MARK: Notifications
-    public func notificationsDefault(index: Int) {
+    
+    private func notificationsDefault(index: [Int]) {
         let lotteOnList = storeViewModel.selectProductCount(index: index)
         NotificationCenter.default.post(name: .lotteOn, object: lotteOnList)
     }
@@ -124,8 +148,10 @@ extension FilterViewController: UICollectionViewDelegate, UICollectionViewDataSo
         cell.itemBind(storeList: storeViewModel.storeEntities, index: indexPath.item)
         
         cell.storeButtonAction = { [unowned self] in
-            notificationsDefault(index: indexPath.item)
+            storeViewModel.indexPath.append(indexPath.item)
+            notificationsDefault(index: storeViewModel.indexPath)
             countLabel.text = storeViewModel.productCount! + "개의 상품 보기"
+            collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
         }
         
         return cell
