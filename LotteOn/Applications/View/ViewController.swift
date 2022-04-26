@@ -86,15 +86,28 @@ class ViewController: UIViewController {
             .bind(to: viewModel.didTapRankFilter)
             .disposed(by: disposeBag)
         
+        lotteAllFilterButton
+            .rx.tap
+            .bind(to: viewModel.didTapAllFilter)
+            .disposed(by: disposeBag)
+        
         
         viewModel.didTapRankFilter
             .withUnretained(self)
             .subscribe { vc, _ in
-                let filterVC = ProductSortPanModalView()
-                filterVC.modalPresentationStyle = .overFullScreen
-                vc.present(filterVC, animated: false, completion: nil)
+                let productSortVC = ProductSortPanModalView()
+                productSortVC.modalPresentationStyle = .overFullScreen
+                vc.present(productSortVC, animated: false, completion: nil)
             }.disposed(by: disposeBag)
         
+        viewModel.didTapAllFilter
+            .withUnretained(self)
+            .subscribe { vc, _ in
+                let filterVC = FilterViewController()
+                vc.viewModel.appendEntities()
+                filterVC.storeViewModel.providerEntities = vc.viewModel.entities
+                vc.navigationController?.pushViewController(filterVC, animated: true)
+            }.disposed(by: disposeBag)
     }
     
     private func configure() {
@@ -171,6 +184,18 @@ class ViewController: UIViewController {
             .subscribe { vc, noti in
                 guard let rankList = noti.object as? [ShopList] else { return }
                 vc.viewModel.entities = rankList
+                DispatchQueue.main.async {
+                    vc.lotteCollectionView.reloadData()
+                }
+            }.disposed(by: disposeBag)
+        
+        NotificationCenter.default
+            .rx
+            .notification(.lotteOn, object: nil)
+            .withUnretained(self)
+            .subscribe { vc, noti in
+                guard let entities = noti.object as? [ShopList] else { return }
+                vc.viewModel.entities = entities
                 DispatchQueue.main.async {
                     vc.lotteCollectionView.reloadData()
                 }

@@ -11,4 +11,5 @@ extension Notification.Name {
     static let row = Notification.Name(rawValue: "Row")
     static let high = Notification.Name(rawValue: "High")
     static let rank = Notification.Name(rawValue: "Rank")
+    static let lotteOn = Notification.Name(rawValue: "LotteOn")
 }

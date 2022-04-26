@@ -18,6 +18,38 @@
             endingLineNumber = "34"
             landmarkName = "init(lotteShopUseCase:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D63A1F7F-CD7A-4208-9F75-151F56985B27 - 7c7bdc76b0b4446f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LotteOn.ViewModel.__allocating_init(lotteShopUseCase: LotteOn.FetchLotteShopUseCase) -&gt; LotteOn.ViewModel"
+                  moduleName = "LotteOn"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kimdohyun/Desktop/Swift-Language/LotteOn/LotteOn/Applications/ViewModel/ViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "35">
+               </Location>
+               <Location
+                  uuid = "D63A1F7F-CD7A-4208-9F75-151F56985B27 - b1a5eda41a7a01f7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LotteOn.ViewModel.init(lotteShopUseCase: LotteOn.FetchLotteShopUseCase) -&gt; LotteOn.ViewModel"
+                  moduleName = "LotteOn"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kimdohyun/Desktop/Swift-Language/LotteOn/LotteOn/Applications/ViewModel/ViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "45">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
