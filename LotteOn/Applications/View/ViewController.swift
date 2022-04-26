@@ -70,6 +70,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         bind()
         configure()
+        notificationDefault()
     }
     
     
@@ -80,18 +81,18 @@ class ViewController: UIViewController {
             self?.listTotalCountLabel.text = "총 " + count + " 개"
         }
         
-        lotteRankFilterButton.rx
-            .tap
+        lotteRankFilterButton
+            .rx.tap
             .bind(to: viewModel.didTapRankFilter)
             .disposed(by: disposeBag)
         
         
         viewModel.didTapRankFilter
             .withUnretained(self)
-            .subscribe { [self] vc, _ in
+            .subscribe { vc, _ in
                 let filterVC = ProductSortPanModalView()
                 filterVC.modalPresentationStyle = .overFullScreen
-                self.present(filterVC, animated: false, completion: nil)
+                vc.present(filterVC, animated: false, completion: nil)
             }.disposed(by: disposeBag)
         
     }
@@ -135,6 +136,46 @@ class ViewController: UIViewController {
         
         
     }
+    
+    //MARK: Notification
+    
+    private func notificationDefault() {
+        NotificationCenter.default
+            .rx
+            .notification(.row, object: nil)
+            .withUnretained(self)
+            .subscribe { vc,noti in
+                guard let rowList = noti.object as? [ShopList] else { return }
+                vc.viewModel.entities = rowList
+                DispatchQueue.main.async {
+                    vc.lotteCollectionView.reloadData()
+                }
+            }.disposed(by: disposeBag)
+        
+        NotificationCenter.default
+            .rx
+            .notification(.high, object: nil)
+            .withUnretained(self)
+            .subscribe { vc, noti in
+                guard let highList = noti.object as? [ShopList] else { return }
+                vc.viewModel.entities = highList
+                DispatchQueue.main.async {
+                    vc.lotteCollectionView.reloadData()
+                }
+            }.disposed(by: disposeBag)
+        
+        NotificationCenter.default
+            .rx
+            .notification(.rank, object: nil)
+            .withUnretained(self)
+            .subscribe { vc, noti in
+                guard let rankList = noti.object as? [ShopList] else { return }
+                vc.viewModel.entities = rankList
+                DispatchQueue.main.async {
+                    vc.lotteCollectionView.reloadData()
+                }
+            }.disposed(by: disposeBag)
+    }
 
 
 }
@@ -144,6 +185,7 @@ class ViewController: UIViewController {
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDataSourcePrefetching {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.numberOfItemsInSection
+        
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

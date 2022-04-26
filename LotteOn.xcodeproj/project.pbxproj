@@ -11,6 +11,8 @@
 		FF52801E2815889400E904C8 /* ImageCacheFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF52801D2815889400E904C8 /* ImageCacheFetch.swift */; };
 		FF5280202816A1B700E904C8 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF52801F2816A1B700E904C8 /* FilterViewController.swift */; };
 		FF5280232816A57E00E904C8 /* ProductSortPanModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5280222816A57E00E904C8 /* ProductSortPanModalView.swift */; };
+		FFAFBE282817E19600DCE4E5 /* ProductSortViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAFBE272817E19600DCE4E5 /* ProductSortViewModel.swift */; };
+		FFAFBE2B2817E8B800DCE4E5 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAFBE2A2817E8B800DCE4E5 /* Notification+Name.swift */; };
 		FFB02D5E281180D700BB3E06 /* LotteNavigaionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB02D5D281180D700BB3E06 /* LotteNavigaionView.swift */; };
 		FFB02D602811810E00BB3E06 /* LotteNaivagionConstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB02D5F2811810E00BB3E06 /* LotteNaivagionConstruction.swift */; };
 		FFB02D622811825B00BB3E06 /* ShopList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB02D612811825B00BB3E06 /* ShopList.swift */; };
@@ -54,6 +56,8 @@
 		FF52801D2815889400E904C8 /* ImageCacheFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheFetch.swift; sourceTree = "<group>"; };
 		FF52801F2816A1B700E904C8 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		FF5280222816A57E00E904C8 /* ProductSortPanModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSortPanModalView.swift; sourceTree = "<group>"; };
+		FFAFBE272817E19600DCE4E5 /* ProductSortViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSortViewModel.swift; sourceTree = "<group>"; };
+		FFAFBE2A2817E8B800DCE4E5 /* Notification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
 		FFB02D5D281180D700BB3E06 /* LotteNavigaionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteNavigaionView.swift; sourceTree = "<group>"; };
 		FFB02D5F2811810E00BB3E06 /* LotteNaivagionConstruction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteNaivagionConstruction.swift; sourceTree = "<group>"; };
 		FFB02D612811825B00BB3E06 /* ShopList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopList.swift; sourceTree = "<group>"; };
@@ -129,6 +133,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		FFAFBE292817E87200DCE4E5 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				FFAFBE2A2817E8B800DCE4E5 /* Notification+Name.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
 		FFB02D5C281180A600BB3E06 /* NavigationDI */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +153,7 @@
 		FFB02D652811898C00BB3E06 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FFAFBE292817E87200DCE4E5 /* Notification */,
 				FF5280212816A52400E904C8 /* Components */,
 				FF5280182812EDA200E904C8 /* Cell */,
 				FFF84DBB2811405F0097C732 /* ViewController.swift */,
@@ -153,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				FFB02D6D281193B500BB3E06 /* ViewModel.swift */,
+				FFAFBE272817E19600DCE4E5 /* ProductSortViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -394,7 +408,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFAFBE282817E19600DCE4E5 /* ProductSortViewModel.swift in Sources */,
 				FFB02D602811810E00BB3E06 /* LotteNaivagionConstruction.swift in Sources */,
+				FFAFBE2B2817E8B800DCE4E5 /* Notification+Name.swift in Sources */,
 				FFB02D6E281193B500BB3E06 /* ViewModel.swift in Sources */,
 				FFB02D6A28118D8B00BB3E06 /* ShopListRepository.swift in Sources */,
 				FFF84DBC2811405F0097C732 /* ViewController.swift in Sources */,

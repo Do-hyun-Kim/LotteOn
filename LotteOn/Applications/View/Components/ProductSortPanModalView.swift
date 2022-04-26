@@ -12,9 +12,7 @@ import SnapKit
 
 
 
-final class ProductSortPanModalView: ViewController {
-    
-    
+final class ProductSortPanModalView: UIViewController {
     //MARK: Property
     
     public var dissolveView: UIView = {
@@ -83,14 +81,13 @@ final class ProductSortPanModalView: ViewController {
         return $0
     }(UIButton())
     
-    private let tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer()
-    
-    private var sortViewModel: ViewModel = ViewModel(lotteShopUseCase: DefaultLotteShopUseCase(lotteRepository: DefaultShopListRepository()))
+    private let sortViewModel = ProductSortViewModel()
     private let disposeBag: DisposeBag = DisposeBag()
+    
+    private let tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer()
     
     
     //MARK: LifeCycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         bindUI()
@@ -100,22 +97,52 @@ final class ProductSortPanModalView: ViewController {
     
     
     //MARK: Configure
-    
     private func bindUI() {
-        tapGestureRecognizer.rx.event.subscribe { event in
-            self.dismiss(animated: true, completion: nil)
+        tapGestureRecognizer
+            .rx.event
+            .withUnretained(self)
+            .subscribe { vc, _ in
+                vc.dismiss(animated: true, completion: nil)
         }.disposed(by: disposeBag)
         
-        rowPriceFilterButton.rx.tap
+        rankFilterButton
+            .rx.tap
+            .bind(to: sortViewModel.didTapRankFilter)
+            .disposed(by: disposeBag)
+        
+        rowPriceFilterButton
+            .rx.tap
             .bind(to: sortViewModel.didTapRowFilter)
             .disposed(by: disposeBag)
+        
+        highPriceFilterButton
+            .rx.tap
+            .bind(to: sortViewModel.didTapHighFilter)
+            .disposed(by: disposeBag)
+        
+        sortViewModel.didTapRankFilter
+            .withUnretained(self)
+            .subscribe { vc, _ in
+                vc.dismiss(animated: true) {
+                    vc.defaultNotification()
+                }
+            }.disposed(by: disposeBag)
         
         sortViewModel.didTapRowFilter
             .withUnretained(self)
             .subscribe { vc, _ in
-               
+                vc.dismiss(animated: true, completion: {
+                    vc.rowPriceNotification()
+                })
             }.disposed(by: disposeBag)
         
+        sortViewModel.didTapHighFilter
+            .withUnretained(self)
+            .subscribe { vc, _ in
+                vc.dismiss(animated: true, completion: {
+                    vc.highPriceNotification()
+                })
+            }.disposed(by: disposeBag)
     }
     
     
@@ -126,7 +153,6 @@ final class ProductSortPanModalView: ViewController {
         }
         
         UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
-            self.dissolveView.backgroundColor = .black.withAlphaComponent(0.5)
             self.view.layoutIfNeeded()
         }, completion: nil)
     }
@@ -172,8 +198,27 @@ final class ProductSortPanModalView: ViewController {
             $0.top.equalTo(rowPriceFilterButton.snp.bottom)
             $0.left.right.height.equalTo(rowPriceFilterButton)
         }
-        
-        
+    }
+    
+    
+    //MARK: Notification
+    
+    private func rowPriceNotification() {
+        let viewController = ViewController()
+        let rowSortFilter = viewController.viewModel.entities.sorted{ $0.productPrice < $1.productPrice}
+        NotificationCenter.default.post(name: .row, object: rowSortFilter)
+    }
+    
+    private func highPriceNotification() {
+        let viewController = ViewController()
+        let highSortFilter = viewController.viewModel.entities.sorted{ $0.productPrice > $1.productPrice}
+        NotificationCenter.default.post(name: .high, object: highSortFilter)
+    }
+    
+    private func defaultNotification() {
+        let viewController = ViewController()
+        let rankSortFilter = viewController.viewModel.entities
+        NotificationCenter.default.post(name: .rank, object: rankSortFilter)
     }
     
 }
